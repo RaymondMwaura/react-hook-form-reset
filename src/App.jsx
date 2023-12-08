@@ -50,16 +50,18 @@ function BasicSelect() {
         variant="outlined"
         name="name"
         {...register("name")}
+        inputProps={{
+          sx: {
+            WebkitBoxShadow: "0 0 0 1000px #ba9fba inset !important",
+          },
+        }}
       />
 
       <Box sx={{ marginBottom: "25px" }}>
         <label htmlFor="gender">Gender</label>
         <Controller
           render={({ field }) => (
-            <RadioGroup
-              aria-label="gender"
-              {...field}
-            >
+            <RadioGroup aria-label="gender" {...field}>
               <FormControlLabel
                 value="female"
                 control={<Radio />}
@@ -82,6 +84,11 @@ function BasicSelect() {
               {...field}
               {...register("profession")}
               label="Profession"
+              inputProps={{
+                sx: {
+                  WebkitBoxShadow: "0 0 0 1000px #ba9fba inset !important",
+                },
+              }}
             />
           )}
           id="profession"
@@ -152,9 +159,9 @@ function BasicSelect() {
         <Button
           sx={{ marginRight: "35px", backgroundColor: "purple" }}
           variant="contained"
-          onClick={() => resetField("name")}
+          onClick={() => resetField("age")}
         >
-          reset name
+          reset age
         </Button>
         <Button
           sx={{ backgroundColor: "purple" }}
